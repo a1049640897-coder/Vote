@@ -31,7 +31,10 @@
         <div class="begin-vote" @click="start" v-show="beginShow">
           <span>开始投票</span>
         </div>
-        <div class="pause-vote" v-show="!beginShow" @click="pause">暂停投票</div>
+        <div class="pause-container" v-show="!beginShow">
+          <div class="pause-vote" v-show="pauseShow" @click="pause">暂停投票</div>
+          <div class="pause-vote" v-show="!pauseShow" @click="keepPause">继续投票</div>
+        </div>
         <div class="reset-vote" @click="reset" v-show="!beginShow">重置票数</div>
       </div>
       <div class="cut-dwn-btn">
@@ -47,7 +50,9 @@
 
 <script>
   import * as mutationsTypes from "store/mutation-types";
+  import {Toast} from 'vant';
   import {CHANGE_CUT_DWN_SHOW} from "../../../store/mutation-types";
+
   export default {
     name: "ActCutDwn",
     data() {
@@ -56,6 +61,7 @@
         time: 5000,
         setTime: null,
         beginShow: true,
+        pauseShow:true,
       };
     },
     methods: {
@@ -65,7 +71,15 @@
         // //计算时间比例
         this.setTime = setInterval(() => {
             if (this.currentRate == 100) {
-              clearInterval(this.setTime);
+              Toast('倒计时结束',{
+                duration:1000,
+              });
+              setTimeout(()=>{
+                clearInterval(this.setTime);
+                this.$refs.countDown.reset();
+                this.currentRate =0;
+                this.beginShow =true;
+              },1500);
             } else {
               var hours_time = (this.$refs.hours.innerHTML) * 60 * 60 * 1000;
               var minutes_time = (this.$refs.minutes.innerHTML) * 60 * 1000;
@@ -90,6 +104,11 @@
       pause() {
         this.$refs.countDown.pause();
         clearInterval(this.setTime);
+        //显示继续投票
+        this.pauseShow =false;
+      },
+      keepPause(){
+        this.start();
       },
       //重置票数
       reset() {
@@ -98,13 +117,13 @@
         this.currentRate = 0;
       },
       //隐藏倒计时界面
-      hideCutDwn (){
+      hideCutDwn() {
         this.$store.dispatch(mutationsTypes.CHANGE_CUT_DWN_SHOW);
         this.reset();
       },
       //跳转到节目管理
-      toPgmMag(){
-       this.$router.push('/pgmManage');
+      toPgmMag() {
+        this.$router.push('/pgmManage');
       }
     },
     computed: {},

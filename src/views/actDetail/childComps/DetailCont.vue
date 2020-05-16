@@ -25,9 +25,7 @@
               {{item.title}}&nbsp;:&nbsp;{{item.cont}}
             </div>
           </div>
-
         </div>
-
       </div>
     </div>
   </div>
@@ -49,9 +47,7 @@
           return {}
         }
       }
-
     }
-
   }
 </script>
 
@@ -64,25 +60,21 @@
       width: 100%;
       background-color: white;
       border-radius: 20px 20px 0px 0px;
-
       .title {
         padding: 20px 0px 20px 15px;
         font-size: 20px;
         color: #333333;
         letter-spacing: 0;
       }
-
       .detail-item {
         .item-top {
           display: flex;
           padding-left: 15px;
-
           .icon {
             font-size: 16px;
             color: #52A9FF;
             margin-right: 5px;
           }
-
           .text {
             font-size: 16px;
             color: #666666;
@@ -91,26 +83,21 @@
             margin-left: 5px;
           }
         }
-
         .item-bottom {
           margin-bottom: 10px;
-
           .bottom-text {
             margin-top: 10px;
             padding-left: 15px;
             font-size: 14px;
             color: #999999;
             letter-spacing: 0;
-
             .text-item {
               padding: 5px;
             }
           }
         }
       }
-
     }
-
   }
 
 </style>

@@ -13,10 +13,12 @@
       <div class="rwd-bottom" v-for="(item,index) in rwd" :key="index">
         <img src="~assets/img/common/reward.png" alt="" class="reward">
         <span class="rwd-title">{{item.rwdTitle}}</span>
-        <div class="circle-btn"> <van-button round type="info" @click="toVote(item)">
-          <span v-show="isShow">投票</span>
-          <span v-show="!isShow">评分</span>
-        </van-button></div>
+        <div class="circle-btn">
+          <van-button round type="info" @click="toVote(item)">
+            <span v-show="isShow">投票</span>
+            <span v-show="!isShow">评分</span>
+          </van-button>
+        </div>
 
       </div>
     </div>
@@ -39,25 +41,25 @@
           return []
         }
       },
-      isShow:Boolean,
+      isShow: Boolean,
 
     },
-    methods:{
+    methods: {
       //跳转到总排行
-      toAllRank(){
+      toAllRank() {
         this.$router.push('/allRank');
       },
       /***
        * 跳转到单个奖项/评分投票页面
        * @param item:相应投票/评分的信息
        */
-      toVote(item){
+      toVote(item) {
         console.log(this.isShow);
         this.$router.push({
-          path:'/rwdVote',
-          query:{
-            data:item,
-            btnType:this.isShow,
+          path: '/rwdVote',
+          query: {
+            data: item,
+            btnType: this.isShow,
           }
         });
       }
@@ -68,12 +70,14 @@
 <style lang="scss" scoped>
   .act-rwd-container {
     padding: 0px 10px 0px 10px;
-    background-color: rgb(245,245,245);
+    background-color: rgb(245, 245, 245);
+
     .act-rwd {
       width: 100%;
       border-radius: 10px 10px 0px 0px;
       background-color: white;
       position: relative;
+
       .rwd-top {
 
         position: relative;
@@ -119,21 +123,24 @@
         padding: 10px;
         border-bottom: 1px dotted #CCCCCC;
         position: relative;
+
         .reward {
           width: 30px;
           height: 30px;
           position: relative;
 
         }
-        .rwd-title{
+
+        .rwd-title {
           font-size: 16px;
           color: #666666;
           position: relative;
           top: -6px;
           left: 5px;
         }
+
         .circle-btn {
-        position: absolute;
+          position: absolute;
           right: 0px;
           top: 6px;
         }

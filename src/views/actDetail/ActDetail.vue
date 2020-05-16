@@ -39,16 +39,16 @@
       DetailCont
     },
     methods: {
+      //图片加载完成，进行scroll组件额refresh
       imgLoad() {
         this.$refs.scroll.refresh;
-        console.log("s");
       }
     },
     created() {
+      //获取活动详情内容
       this.$http.get('/getActDetail').then(res => {
         this.img = res.data.pic;
         this.cntList = res.data.detailList;
-        console.log(this.cntList)
         this.title = res.data.title;
       })
     }

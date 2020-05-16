@@ -1,8 +1,8 @@
 <template>
   <div class="act-msg">
-   <div class="img">
-     <img v-lazy="msg.activityPic" alt="" @load="imgLoad">
-   </div>
+    <div class="img">
+      <img v-lazy="msg.activityPic" alt="" @load="imgLoad">
+    </div>
     <div class="title">{{msg.activityTitle}}</div>
     <div class="count">
       <div class="competition">
@@ -24,21 +24,22 @@
 
 <script>
   import MsgDetail from "./childCopms/MsgDetail";
+
   export default {
     name: "ActMsg",
-    components :{
+    components: {
       MsgDetail,
     },
-    props:{
-      msg:{
-        type:Object,
-        default(){
+    props: {
+      msg: {
+        type: Object,
+        default() {
           return {}
         }
       }
     },
-    methods:{
-      imgLoad(){
+    methods: {
+      imgLoad() {
         this.$emit('load');
       }
     },
@@ -48,41 +49,47 @@
 
 <style lang="scss" scoped>
 
-.act-msg{
-  padding: 0px 10px 0px 10px;
-  position: relative;
-  background-color: rgb(245,245,245);
-   .img img{
-     width: 100%;
-     height: 100%;
-   }
-   .title{
+  .act-msg {
+    padding: 0px 10px 0px 10px;
+    position: relative;
+    background-color: rgb(245, 245, 245);
 
-     font-weight: bold;
-     font-size: 18px;
-     color: #333333;
-
-     margin: 20px 0px 20px 0px;
-     text-align: center;
-   }
-  .count{
-    display: flex;
-    .competition,.has-count,.hot-count{
-      flex: 1;
+    .img img {
+      width: 100%;
+      height: 100%;
     }
-    .competition-cut,.has-count-cut,.hot-count-cut{
-      font-size: 20px;
-      color: #D34545;
-      letter-spacing: 0;
+
+    .title {
+
+      font-weight: bold;
+      font-size: 18px;
+      color: #333333;
+
+      margin: 20px 0px 20px 0px;
       text-align: center;
     }
-    .cut-1,.cut-2,.cut-3{
-      font-size: 14px;
-      color: #888888;
-      letter-spacing: 0;
-      text-align: center;
-      margin: 5px 0px 5px 0px;
+
+    .count {
+      display: flex;
+
+      .competition, .has-count, .hot-count {
+        flex: 1;
+      }
+
+      .competition-cut, .has-count-cut, .hot-count-cut {
+        font-size: 20px;
+        color: #D34545;
+        letter-spacing: 0;
+        text-align: center;
+      }
+
+      .cut-1, .cut-2, .cut-3 {
+        font-size: 14px;
+        color: #888888;
+        letter-spacing: 0;
+        text-align: center;
+        margin: 5px 0px 5px 0px;
+      }
     }
   }
-}
 </style>

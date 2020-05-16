@@ -12,12 +12,12 @@
       <div class="first-title">{{msg.firstRank ?msg.firstRank.title:'没有数据'}}</div>
       <div class="second-number">{{msg.secondRank ? msg.secondRank.number :'没有数据'}}票</div>
       <div class="second-avatar">
-        <img  v-lazy="msg.secondRank ? msg.secondRank.avatar:'没有数据'" alt="">
+        <img v-lazy="msg.secondRank ? msg.secondRank.avatar:'没有数据'" alt="">
       </div>
       <div class="second-title">{{msg.secondRank?msg.secondRank.title:'没有数据'}}</div>
       <div class="third-number">{{msg.thirdRank? msg.thirdRank.number :'没有数据'}}票</div>
       <div class="third-avatar">
-        <img  v-lazy="msg.thirdRank ? msg.thirdRank.avatar : '没有数据'" alt="">
+        <img v-lazy="msg.thirdRank ? msg.thirdRank.avatar : '没有数据'" alt="">
       </div>
       <div class="third-title">
         {{msg.thirdRank?msg.thirdRank.title:'没有数据'}}
@@ -49,7 +49,7 @@
   .rank-top-container {
     position: relative;
     border-radius: 20px 10px 0px 0px;
-    box-shadow: 0px -6px 10px 0 rgba(0,0,0,0.05);
+    box-shadow: 0px -6px 10px 0 rgba(0, 0, 0, 0.05);
 
     img {
       width: 300px;
@@ -114,21 +114,25 @@
       top: 68px;
       left: 50px;
     }
+
     .second-number {
       @extend .first-number;
       left: 80px;
       top: 50px;
     }
+
     .third-title {
       @extend .first-title;
       left: 255px;
       top: 152px;
     }
+
     .third-avatar {
       @extend .first-avatar;
       left: 255px;
       top: 86px;
     }
+
     .third-number {
       @extend .first-number;
       top: 70px;

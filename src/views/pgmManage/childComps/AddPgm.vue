@@ -4,12 +4,12 @@
       <div class="pgm-title" slot="title">添加节目</div>
       <div class="pgm-main" slot="container">
         <div class="avatar-box">
-          <img :src="img" alt="" v-show="" v-show="!imgIsShow" >
+          <img :src="img" alt="" v-show="" v-show="!imgIsShow">
           <img src="~assets/img/common/loading.gif" alt="" v-show="imgIsShow">
           <div class="camera-box">
             <div class="camera">
               <van-uploader :after-read="afterRead">
-              <i class="iconfont iconcamera"></i>
+                <i class="iconfont iconcamera"></i>
               </van-uploader>
             </div>
           </div>
@@ -29,10 +29,10 @@
 
   export default {
     name: "AddPgm",
-    data (){
+    data() {
       return {
-      img:null,
-        imgIsShow:true,
+        img: null,
+        imgIsShow: true,
       }
     },
     components: {
@@ -40,19 +40,17 @@
       AddInput,
       Scroll
     },
-    methods :{
+    methods: {
       afterRead(file) {
         // 此时可以自行将文件上传至服务器
         this.img = file.content;
-        this.imgIsShow =false;
+        this.imgIsShow = false;
       },
-      hideAddPgm(){
-       this.$emit('hideAddPgm');
+      hideAddPgm() {
+        this.$emit('hideAddPgm');
       }
     },
-    computed :{
-
-    }
+    computed: {}
   }
 </script>
 
@@ -61,6 +59,7 @@
     .pgm-main {
       width: 100%;
       padding: 20px 0px;
+
       .avatar-box {
         position: relative;
         width: 120px;

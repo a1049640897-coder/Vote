@@ -14,6 +14,7 @@ const QusList=()=>import('views/qusNaire/QusList');
 const QusBasicInfo=()=>import('views/qusNaire/QusBasicInfo');
 const QusText=()=>import('views/qusNaire/QusText');
 
+
 Vue.use(VueRouter);
 
   const routes = [
@@ -65,7 +66,7 @@ Vue.use(VueRouter);
       path:'/qusText',
       component:QusText,
       children:[]
-    }
+    },
 ]
 
 const router = new VueRouter({

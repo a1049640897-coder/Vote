@@ -82,7 +82,7 @@
         this.beautifulShow = true;
       },
       //图片加载refresh
-      btmLoad(){
+      btmLoad() {
         // this.$refs.scroll.refresh;
 
       }

@@ -38,7 +38,7 @@
       //完成
       finish() {
         this.$router.push({
-          path: '/actVote',
+          path: '/actList',
           query: {
             finishi: true,
           }

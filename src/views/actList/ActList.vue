@@ -4,12 +4,12 @@
     <nav-bar>
       <div slot="center">DEEP投票</div>
     </nav-bar>
-<!--    投票列表-->
-      <scroll class="content" ref="scroll" :probe-type="2" @scroll="scrollPosition">
-        <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
+    <!--    投票列表-->
+    <scroll class="content" ref="scroll" :probe-type="2" @scroll="scrollPosition">
+      <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
         <msg-list :msg="msg" @imgLoad="imgLoad" @toActVote="toActVote"></msg-list>
-        </van-pull-refresh>
-      </scroll>
+      </van-pull-refresh>
+    </scroll>
     <!--圆形按钮-->
     <circle-btn class="circle-btn" v-show="isAdmin" @click.native="showOverlay">
       <i class="iconfont iconstart"></i>
@@ -18,23 +18,20 @@
       <div class="container" @click.stop="hideOverlay">
         <div class="top">
           <div class="top-container">
-          <div class="score-act" @click.stop="toCrt(score)">
-            <div class="icon"><i class="iconfont iconscorex"></i></div>
-            <div class="title">评分活动</div>
-          </div>
-          <span class="vertical"></span>
-          <div class="vote-act" @click.stop="toCrt(vote)">
-            <div class="icon"><i class="iconfont iconvotex"></i></div>
-            <div class="title">投票活动</div>
-            <div class="bottom"></div>
-          </div>
+            <div class="score-act" @click.stop="toCrt(score)">
+              <div class="icon"><i class="iconfont iconscorex"></i></div>
+              <div class="title">评分活动</div>
+            </div>
+            <span class="vertical"></span>
+            <div class="vote-act" @click.stop="toCrt(vote)">
+              <div class="icon"><i class="iconfont iconvotex"></i></div>
+              <div class="title">投票活动</div>
+              <div class="bottom"></div>
+            </div>
           </div>
         </div>
       </div>
     </van-overlay>
-
-
-
   </div>
 </template>
 
@@ -45,7 +42,7 @@
   import CircleBtn from "components/common/circleBtn/CircleBtn";
   //引入子组件
   import MsgList from "./childComps/MsgList";
-  import { Toast } from 'vant';
+  import {Toast} from 'vant';
   //引入防抖函数
   import {debounce} from "common/untils";
 
@@ -57,10 +54,10 @@
         count: 0,
         isLoading: false,
         checked: true,
-        isAdmin:Boolean,
+        isAdmin: Boolean,
         show: false,
-        vote:true,
-        score:false,
+        vote: true,
+        score: false,
       }
     },
     components: {
@@ -70,19 +67,18 @@
 
       MsgList,
     },
-    computed: {
-    },
+    computed: {},
     methods: {
       //图片更新进行更新refresh
       imgLoad() {
-        debounce( this.$refs.scroll.refresh(),3000);
+        debounce(this.$refs.scroll.refresh(), 3000);
       },
       //跳转到活动投票
       toActVote(value) {
         this.$router.push({
-          path:'/actVote',
-          query:{
-            'msg':value,
+          path: '/actVote',
+          query: {
+            'msg': value,
           }
         })
       },
@@ -92,54 +88,49 @@
           this.$http.get('/getVoteList').then(res => {
             this.msg = res.data.voteList;
           });
-          if (this.msg){
+          if (this.msg) {
             Toast('刷新成功');
             this.isLoading = false;
-          }else {
+          } else {
             Toast('刷新失败');
           }
-        },2000)
+        }, 2000)
       },
       //判断位置，当位置超过顶部开始刷新
-      scrollPosition(position){
-        if (position.y>0){
-          this.isLoading =true;
+      scrollPosition(position) {
+        if (position.y > 0) {
+          this.isLoading = true;
           this.onRefresh();
         }
       },
       //显示遮罩层
-      showOverlay(){
-        this.show =true;
+      showOverlay() {
+        this.show = true;
       },
       //隐藏遮罩层
-      hideOverlay(){
-       this.show =false;
+      hideOverlay() {
+        this.show = false;
       },
       //跳转到创建评分活动
-      toCrt(type){
-       this.$router.push({
-         path:'/crtAct',
-         query:{
-           type:type,
-         }
-       })
+      toCrt(type) {
+        this.$router.push({
+          path: '/crtAct',
+          query: {
+            type: type,
+          }
+        })
       },
-
-
     },
     //获取投票列表信息
     created() {
-
       this.$http.get('/getVoteList').then(res => {
         this.msg = res.data.voteList;
         this.isAdmin = res.data.status;
       })
     },
     mounted() {
-
     },
     destroyed() {
-
     }
 
   }
@@ -153,7 +144,6 @@
     left: 0px;
     right: 0px;
     overflow: hidden;
-
   }
 
   .circle-btn {
@@ -165,6 +155,7 @@
     font-size: 30px;
     color: #52A9FF;
   }
+
   .container {
     display: flex;
     height: 100%;
@@ -183,26 +174,28 @@
       .top-container {
         display: flex;
         justify-content: space-between;
+
         .score-act {
           font-size: 14px;
           color: #666666;
           letter-spacing: 0;
           text-align: center;
-          .title{
+
+          .title {
             margin-top: 5px;
           }
         }
+
         .vote-act {
           @extend .score-act;
         }
-        .vertical{
-           border: 1px solid #CCCCCC;
 
+        .vertical {
+          border: 1px solid #CCCCCC;
         }
       }
-
-
     }
+
     .bottom {
       position: absolute;
       width: 50px;

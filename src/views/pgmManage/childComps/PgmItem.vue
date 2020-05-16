@@ -1,7 +1,7 @@
 <template>
   <!--底部滑块-->
   <div class="pgm-btm">
-    <van-swipe-cell class="swiper"  v-for="(item,index) in msg" :key="index"  >
+    <van-swipe-cell class="swiper" v-for="(item,index) in msg" :key="index">
       <div class="avatar">
         <img v-lazy="item.avatar" alt="" @load="imgLoad">
       </div>
@@ -31,33 +31,33 @@
   </div>
 </template>
 
-<script >
+<script>
   export default {
     name: "PgmItem",
-    props :{
-      msg:{
-        type:Array,
-        default (){
+    props: {
+      msg: {
+        type: Array,
+        default() {
           return []
         }
       }
     },
-    methods :{
-      imgLoad (){
+    methods: {
+      imgLoad() {
         this.$emit('imgLoad');
       },
       //删除节目
-      del(index){
-       let list = this.msg;
-       list.splice(index,1);
+      del(index) {
+        let list = this.msg;
+        list.splice(index, 1);
       },
       //改变节目顺序
-      sort(index){
-        let list  =this.msg;
-          if (index!==0){
-          let crtData =list[index];
-          list.splice(index,1,list[index-1]);
-          list.splice(index-1,1,crtData);
+      sort(index) {
+        let list = this.msg;
+        if (index !== 0) {
+          let crtData = list[index];
+          list.splice(index, 1, list[index - 1]);
+          list.splice(index - 1, 1, crtData);
         }
       }
     }
@@ -68,11 +68,13 @@
   .pgm-btm {
     position: relative;
     border-radius: 10px;
+
     .swiper {
       padding: 10px 0px;
       background-color: #FFFFFF;
       border-radius: 10px;
       margin-top: 10px;
+
       .avatar {
         width: 64px;
         height: 64px;
@@ -86,26 +88,31 @@
           border-radius: 100%;
         }
       }
+
       .text {
         float: left;
         margin-left: 10px;
+
         .title {
           font-size: 16px;
           font-weight: bold;
           color: #666666;
         }
-        .number,.dancer {
+
+        .number, .dancer {
           font-size: 14px;
           color: #999999;
           letter-spacing: 0;
           margin-top: 3px;
         }
       }
-      .btn{
+
+      .btn {
         margin-left: 40px;
         width: 240px;
         height: 30px;
         margin-top: -10px;
+
         .edit {
           background: #52A9FF;
           float: left;
@@ -118,16 +125,19 @@
           text-align: center;
           padding: 16px 0px;
           border-radius: 10px 0px 0px 10px;
+
           .iconfont {
             font-size: 20px;
             margin-bottom: 10px;
           }
         }
+
         .sort {
           @extend .edit;
           background: #A2B777;
           border-radius: 0px;
         }
+
         .del {
           @extend .edit;
           background: #FF5B5B;

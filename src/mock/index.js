@@ -155,7 +155,7 @@ Mock.mock(/\/getAllRank/, 'get', () => {
 //获取节目管理信息
 Mock.mock(/\/getPgmList/, 'get', () => {
   return Mock.mock({
-    'pgmList|10': [{
+    'pgmList|15': [{
       'avatar': Mock.Random.image('810X514', '#50B347', '#FFF', 'avatar'),//获奖头像
       'title': '@ctitle(2,4)',//标题
       'number|1-100': 100,//编号

@@ -1,9 +1,10 @@
 <template>
   <div id="pgm-manage-container">
     <!--导航栏-->
+
     <nav-bar>
       <div slot="left"><i class="iconfont iconfanhui"></i></div>
-      <div slot="center">节目管理</div>
+      <div slot="center" @click="toDemo">节目管理</div>
     </nav-bar>
     <!--节目列表-->
     <scroll class="content" ref="scroll" v-show="pgmListIsShow">
@@ -18,12 +19,11 @@
       </pgm-title>
     </scroll>
     <!--添加节目-->
-      <scroll class="content" ref="scroll" v-show="addPgmIsShow">
-        <add-pgm @hideAddPgm="hideAddPgm"></add-pgm>
-      </scroll>
+    <scroll class="content" ref="scroll" v-show="addPgmIsShow">
+      <add-pgm @hideAddPgm="hideAddPgm"></add-pgm>
+    </scroll>
 
-
-
+    <div class="background-lay"></div>
   </div>
 </template>
 
@@ -60,6 +60,9 @@
       PgmTitle,
     },
     methods: {
+      toDemo() {
+        this.$router.push('/demo');
+      },
       imgLoad() {
         debounce(this.$refs.scroll.refresh, 1000);
       },
@@ -68,15 +71,16 @@
         this.pgmListIsShow = false;
         this.addPgmIsShow = true;
       },
-      hideAddPgm(){
+      //隐藏节目添加页面
+      hideAddPgm() {
         this.pgmListIsShow = true;
         this.addPgmIsShow = false;
       }
     },
     created() {
-      console.log(this.$http.get('/getPgmList').then(res => {
+      this.$http.get('/getPgmList').then(res => {
         this.msg = res.data.pgmList;
-      }))
+      })
     }
   }
 </script>
@@ -85,8 +89,21 @@
   @import "src/style/common";
 
   #pgm-manage-container {
+
+
+    .background-lay {
+      z-index: -1;
+      height: 100vh;
+      top: 0px;
+      left: 0px;
+      right: 0px;
+      bottom: 0px;
+     background-color: rgb(245,245,245);
+      position: fixed;
+    }
+
     .content {
-      @include scroll-content;
+   @include scroll-content
     }
   }
 

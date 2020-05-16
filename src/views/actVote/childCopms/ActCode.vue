@@ -84,7 +84,7 @@
         actived: 'actived',
         show: false,
         url: '',//需要转化的图片链接
-        changedUrl:'',//已经转化为base64的图片格式
+        changedUrl: '',//已经转化为base64的图片格式
       }
     },
     props: {
@@ -106,7 +106,7 @@
         this.isActShow = false;
         this.isSceShow = true;
       },
-     //点击下载 存在的bug 当v-lazy结束显示mock图片以后 点击下载就无法显示出来mock的图片 是存在跨域问题
+      //点击下载 存在的bug 当v-lazy结束显示mock图片以后 点击下载就无法显示出来mock的图片 是存在跨域问题
       downLoad() {
         html2canvas(this.$refs.code, {
           allowTaint: false,   //允许污染
@@ -122,25 +122,22 @@
           a.href = dataURL;
           a.click();
         })
-          },
-          //展示底部圆角弹窗
-          showPopup()
-        {
-          this.show = true;
-        },
-
-        // 返回一个特定的 DOM 节点，作为挂载的父节点
-        getContainer()
-        {
-          return this.$refs.share;
-        },
-
-        //关闭二维码页面
-        closeCodeShow()
-        {
-          this.$store.dispatch(mutationsTypes.CHANGE_CODE_SHOW);
-        }
       },
+      //展示底部圆角弹窗
+      showPopup() {
+        this.show = true;
+      },
+
+      // 返回一个特定的 DOM 节点，作为挂载的父节点
+      getContainer() {
+        return this.$refs.share;
+      },
+
+      //关闭二维码页面
+      closeCodeShow() {
+        this.$store.dispatch(mutationsTypes.CHANGE_CODE_SHOW);
+      }
+    },
     mounted() {
       //  /**
       //  * @description: 图片转base64

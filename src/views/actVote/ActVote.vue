@@ -53,7 +53,6 @@
       },
       //改变二维码页面显示状态
       changeCodeIsShow() {
-
         this.$store.dispatch(mutationsTypes.CHANGE_CODE_SHOW);
       },
       //改变控制面板显示转态
@@ -89,7 +88,7 @@
       //获取节目
       this.$http.get('/getPgmListData').then(res => {
         this.setShow = res.data.boolean.setType.boolean;
-        this.btnType =Boolean(res.data.boolean.btnType.boolean);
+        this.btnType = Boolean(res.data.boolean.btnType.boolean);
         this.pgm = res.data.PgmList;
       })
 

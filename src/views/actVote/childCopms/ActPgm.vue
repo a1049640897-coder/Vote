@@ -5,9 +5,9 @@
         <img src="~assets/img/common/clock.png" alt="" class="clock">
         <span class="time-title">距离投票结束还剩:</span>
         <van-count-down millisecond :time="time" format="HH:mm:ss:SS" class="time"/>
-        <img src="~assets/img/common/leaderBoard.png" alt="" class="leader"  @click="toAllRank">
+        <img src="~assets/img/common/leaderBoard.png" alt="" class="leader" @click="toAllRank">
       </div>
-      <div class="pgm-bottom" v-for="(item,index) in pgm"  :key="index">
+      <div class="pgm-bottom" v-for="(item,index) in pgm" :key="index">
         <div class="img"><img v-lazy="item.avatar" alt=""></div>
         <div class="title">
           <div class="title-1">{{item.title}}</div>
@@ -15,8 +15,8 @@
           <div class="title-3">表演者:&nbsp;{{item.dancer}}</div>
         </div>
         <div class="circle-btn">
-          <van-button round type="info" @click="showPUp(item)" >
-            <span v-show="btnType" >投票</span>
+          <van-button round type="info" @click="showPUp(item)">
+            <span v-show="btnType">投票</span>
             <span v-show="!btnType">评分</span>
           </van-button>
         </div>
@@ -27,6 +27,7 @@
 
 <script>
   import *as mutationTypes from 'store/mutation-types';
+
   export default {
     name: "ActPgm",
     data() {
@@ -34,14 +35,14 @@
         time: 30 * 60 * 60 * 1000,
       }
     },
-    methods:{
+    methods: {
       //跳转总排行页面
-      toAllRank(){
+      toAllRank() {
         this.$router.push('/allRank');
       },
       //展示弹窗
-        showPUp(item){
-         this.$store.dispatch(mutationTypes.CHANGE_POP_SHOW,item);
+      showPUp(item) {
+        this.$store.dispatch(mutationTypes.CHANGE_POP_SHOW, item);
       }
     },
     props: {
@@ -51,7 +52,7 @@
           return []
         }
       },
-      btnType:Boolean,
+      btnType: Boolean,
     },
     created() {
 
@@ -63,9 +64,11 @@
   .act-pgm-container {
     padding: 0px 5px 0px 5px;
     border-radius: 10px 10px 0px 0px;
-    box-shadow: 0px 5px 10px 0 rgba(0,0,0,0.5);
+    box-shadow: 0px 5px 10px 0 rgba(0, 0, 0, 0.5);
+
     .act-pgm {
       width: 100%;
+
       .pgm-top {
         position: relative;
         padding: 5px;
@@ -109,6 +112,7 @@
         border-bottom: 1px solid;
         position: relative;
         border-bottom: 1px solid #CCCCCC;
+
         .title {
           position: absolute;
           top: 10px;

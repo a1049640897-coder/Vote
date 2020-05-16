@@ -1,7 +1,9 @@
 <template>
   <div class="pgm-container">
     <div class="pgm-top">
-      <div class="pgm-title"><slot name="title"></slot></div>
+      <div class="pgm-title">
+        <slot name="title"></slot>
+      </div>
       <div class="pgm-add">
         <slot name="icon"></slot>
       </div>
@@ -20,13 +22,9 @@
 <style lang="scss" scoped>
   .pgm-container {
     padding: 15px;
-    background-color: rgb(245, 245, 245);
-    height: 100vh;
-
+    /*background-color: rgb(245, 245, 245);*/
     .pgm-top {
       width: 100%;
-      /*padding: 15px;*/
-      /*background-color: red;*/
       display: flex;
       justify-content: space-between;
 

@@ -3,7 +3,6 @@
     <div class="detail-img">
       <img v-lazy="img.activityPic" alt="" :key="img.activityPic" @load="imgLoad">
     </div>
-
   </div>
 </template>
 
@@ -17,6 +16,7 @@
       }
     },
     methods :{
+      //图片加载，传送到ActDetail组件
       imgLoad(){
         this.$emit('imgLoad');
       }
