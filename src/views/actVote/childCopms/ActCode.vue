@@ -1,16 +1,17 @@
 <template>
+
   <div class="act-code-container" ref="code">
     <!--二维码-->
     <div class="act-code">
       <div class="code-img">
-        <img v-lazy="msg.activityPic" alt="">
+        <img v-lazy="msg.activityPic">
       </div>
-      <div class="code-title">{{msg.activityTitle}}</div>
+      <div class="code-title">{{ msg.activityTitle}}</div>
       <div class="code-time">
-        <i class="iconfont iconclockx"><span>{{msg.activityTime}}</span></i>
+        <i class="iconfont iconclockx"><span>{{ msg.activityTime}}</span></i>
       </div>
       <div class="code-adrs">
-        <i class="iconfont iconlocationx"><span>{{msg.activityAddress}}</span></i>
+        <i class="iconfont iconlocationx"><span>{{ msg.activityAddress}}</span></i>
       </div>
       <div class="qr-code">
         <img src="~assets/img/common/code.png" alt="">
@@ -18,7 +19,6 @@
       <div class="close" @click="closeCodeShow">
         <i class="iconfont iconclose"></i>
       </div>
-
     </div>
     <!--底部活动和评分-->
     <div class="title">
@@ -63,6 +63,7 @@
       </van-popup>
     </div>
   </div>
+
 </template>
 
 <script>
@@ -82,6 +83,8 @@
         normal: 'normal',
         actived: 'actived',
         show: false,
+        url: '',//需要转化的图片链接
+        changedUrl:'',//已经转化为base64的图片格式
       }
     },
     props: {
@@ -103,35 +106,66 @@
         this.isActShow = false;
         this.isSceShow = true;
       },
-      //下载到手机 bug:下载到手机里面没有出现图片
+     //点击下载 存在的bug 当v-lazy结束显示mock图片以后 点击下载就无法显示出来mock的图片 是存在跨域问题
       downLoad() {
         html2canvas(this.$refs.code, {
-          taintTest: false,
-          useCORS: true,
-          allowTaint: false,
-        }).then(canvas => {
-          let link = document.createElement('a');
-          link.href = canvas.toDataURL();
-          link.setAttribute('download', '图片canvas.png');
-          link.style.display = 'none';
-          document.body.appendChild(link);
-          link.click();
-        });
-      },
-      //展示底部圆角弹窗
-      showPopup() {
-        this.show = true;
-      },
-      // 返回一个特定的 DOM 节点，作为挂载的父节点
-      getContainer() {
-        return this.$refs.share;
-      },
-      //关闭二维码页面
-      closeCodeShow() {
-        this.$store.dispatch(mutationsTypes.CHANGE_CODE_SHOW);
-      }
-    }
+          allowTaint: false,   //允许污染
+          taintTest: true,    //在渲染前测试图片(没整明白有啥用)
+          useCORS: true,      //使用跨域(当allowTaint为true时这段代码没什么用,下面解释)
+          background: "#fff",
+        }).then(function (canvas) {
+          var dataURL = canvas.toDataURL("image/png");
+          var a = document.createElement('a');
+          // a.download = name || 'pic'
+          // a.setAttribute("href",dataURL)
+          a.download = '二维码';
+          a.href = dataURL;
+          a.click();
+        })
+          },
+          //展示底部圆角弹窗
+          showPopup()
+        {
+          this.show = true;
+        },
 
+        // 返回一个特定的 DOM 节点，作为挂载的父节点
+        getContainer()
+        {
+          return this.$refs.share;
+        },
+
+        //关闭二维码页面
+        closeCodeShow()
+        {
+          this.$store.dispatch(mutationsTypes.CHANGE_CODE_SHOW);
+        }
+      },
+    mounted() {
+      //  /**
+      //  * @description: 图片转base64
+      //  * @param {String} url 需要转换的图片原链接（http://....jpg）
+      //  * @param {String} outputFormat 转换出来的图片的类型（canvas支持jpg/png格式）
+      //  * @return: 返回图片对应的base64编码
+      //  */
+      // let getBas64 = (url, outputFormat = 'image/png') => {
+      //   return new Promise(function (resolve, reject) {
+      //     let canvas = document.createElement('CANVAS'),
+      //       ctx = canvas.getContext('2d'),
+      //       img = new Image;
+      //     img.crossOrigin = 'Anonymous'; // 重点！设置image对象可跨域请求
+      //     img.onload = function () {
+      //       canvas.height = img.height;
+      //       canvas.width = img.width;
+      //       ctx.drawImage(img, 0, 0);
+      //       let dataURL = canvas.toDataURL(outputFormat);
+      //       canvas = null;
+      //       resolve(dataURL);
+      //     };
+      //   })
+      // };
+      //
+    }
   }
 </script>
 
@@ -139,7 +173,7 @@
   @import "src/style/common";
 
   .act-code-container {
-   @include over-bg;
+    @include over-bg;
 
     .act-code {
       width: 315px;
@@ -151,7 +185,7 @@
       border-radius: 10px;
 
       .code-img {
-        z-index: 999;
+
 
         img {
           width: 100%;

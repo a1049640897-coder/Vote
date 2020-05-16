@@ -75,7 +75,7 @@
 
       Scroll
     },
-    created() {
+    mounted() {
       //获取活动个投票头部信息
       this.$http.get('/getActTop').then(res => {
         this.msg = res.data.voteList;
