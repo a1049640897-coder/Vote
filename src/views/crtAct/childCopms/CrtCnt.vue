@@ -58,6 +58,7 @@
 </template>
 
 <script>
+  import {Popup,Uploader,DatetimePicker} from 'vant';
   export default {
     name: "CrtCnt",
     data() {
@@ -82,6 +83,11 @@
         currentDate: new Date(),
         actTime:'',
       }
+    },
+    components:{
+      [Popup.name]:Popup,
+      [Uploader.name]:Uploader,
+      [DatetimePicker.name]:DatetimePicker,
     },
     methods: {
       afterRead(file) {

@@ -71,10 +71,14 @@
   import html2canvas from 'html2canvas'
   import * as mutationsTypes from "store/mutation-types";
 
+  import {Popup} from 'vant';
+
   export default {
     name: "ActCode",
     components: {
-      CircleBtn
+      CircleBtn,
+
+      [Popup.name]:Popup,
     },
     data() {
       return {
@@ -139,29 +143,6 @@
       }
     },
     mounted() {
-      //  /**
-      //  * @description: 图片转base64
-      //  * @param {String} url 需要转换的图片原链接（http://....jpg）
-      //  * @param {String} outputFormat 转换出来的图片的类型（canvas支持jpg/png格式）
-      //  * @return: 返回图片对应的base64编码
-      //  */
-      // let getBas64 = (url, outputFormat = 'image/png') => {
-      //   return new Promise(function (resolve, reject) {
-      //     let canvas = document.createElement('CANVAS'),
-      //       ctx = canvas.getContext('2d'),
-      //       img = new Image;
-      //     img.crossOrigin = 'Anonymous'; // 重点！设置image对象可跨域请求
-      //     img.onload = function () {
-      //       canvas.height = img.height;
-      //       canvas.width = img.width;
-      //       ctx.drawImage(img, 0, 0);
-      //       let dataURL = canvas.toDataURL(outputFormat);
-      //       canvas = null;
-      //       resolve(dataURL);
-      //     };
-      //   })
-      // };
-      //
     }
   }
 </script>

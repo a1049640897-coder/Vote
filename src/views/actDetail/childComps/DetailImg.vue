@@ -1,7 +1,7 @@
 <template>
   <div class="detail-img-container">
     <div class="detail-img">
-      <img v-lazy="img.activityPic" alt="" :key="img.activityPic" @load="imgLoad">
+      <img  v-lazy="img.activityPic" @load="imgLoad">
     </div>
   </div>
 </template>

@@ -35,6 +35,7 @@
 
 <script>
   import * as mutationsTypes from "store/mutation-types";
+  import {Button} from 'vant';
   export default {
     name: "RwdBottom",
     data() {
@@ -48,6 +49,9 @@
         checkbox: [],
         voteIndex:[-1],
       }
+    },
+    components:{
+      [Button.name]:Button,
     },
     props: {
       list: {

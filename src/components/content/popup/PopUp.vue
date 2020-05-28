@@ -50,6 +50,8 @@
 <script>
   import * as mutationsTypes from "store/mutation-types";
 
+  import {Overlay,Slider} from 'vant';
+
   export default {
     name: "PopUp",
     data() {
@@ -65,6 +67,10 @@
         voteIndex:Number,//不同的投票数据的index
 
       }
+    },
+    components:{
+      [Overlay.name]:Overlay,
+      [Slider.name]:Slider,
     },
     props: {
       btnType: Boolean,

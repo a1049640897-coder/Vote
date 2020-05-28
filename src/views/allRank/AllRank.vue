@@ -31,7 +31,6 @@
   import RnkTop from "./childComps/RnkTop";
   import RnkBottom from "./childComps/RnkBottom";
 
-  import {debounce} from "common/untils";
 
   export default {
     name: "AllRank",

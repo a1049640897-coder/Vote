@@ -88,7 +88,7 @@
 
 <script>
 
-
+import {Popup,Picker,DatetimePicker,Field} from 'vant';
   export default {
     name: "CrtSet",
     data() {
@@ -139,6 +139,12 @@
         voteEndTime: false,
         index:Number,//用来存储用户点击的index
       }
+    },
+    components:{
+      [Popup.name]:Popup,
+      [Picker.name]:Picker,
+      [DatetimePicker.name]:DatetimePicker,
+      [Field.name]:Field,
     },
     methods: {
       otherOnConfirm(value) {

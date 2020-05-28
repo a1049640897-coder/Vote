@@ -28,6 +28,7 @@
 </template>
 
 <script>
+  import {Field,Button} from 'vant';
   export default {
     name: "QusNaire",
     data() {
@@ -36,7 +37,10 @@
         value2: '',
       }
     },
-    components: {},
+    components: {
+      [Field.name]:Field,
+      [Button.name]:Button,
+    },
     methods: {
       toQusList() {
         this.$router.push('/qusList');

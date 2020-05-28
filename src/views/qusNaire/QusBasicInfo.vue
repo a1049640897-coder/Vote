@@ -39,6 +39,8 @@
   import NavBar from "components/common/navBar/NavBar";
   import Scroll from "components/common/scroll/Scroll";
 
+  import {Field,Button,Radio,RadioGroup} from 'vant';
+
   export default {
     name: "QusBasicInfo",
     data(){
@@ -54,16 +56,21 @@
         radio: '',
       }
     },
+    components:{
+      [Field.name]:Field,
+      [Button.name]:Button,
+      [Radio.name]:Radio,
+      [RadioGroup.name]:RadioGroup,
+
+      NavBar,
+      Scroll,
+    },
     methods:{
       //跳转到问卷调查开始页面
       toQusText(){
           this.$router.push('/qusText');
       }
     },
-    components: {
-      NavBar,
-      Scroll,
-    }
 
   }
 </script>

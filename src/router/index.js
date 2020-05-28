@@ -20,52 +20,87 @@ Vue.use(VueRouter);
   const routes = [
     {
       path:'/',
-      redirect :'/actList'
+      redirect :'/qusNaire',
+      meta:{
+        title:'重定向到首页'
+      }
     },
     {
       path: '/actList',
       component:ActList,
+      meta:{
+        title:'首页',
+      }
     },
     {
       path:'/actVote',
       component:ActVote,
+      meta:{
+        title:'活动投票',
+      }
     },
     {
       path:'/allRank',
       component:AllRank,
+      meta:{
+        title:'总排行榜',
+      }
     },
     {
       path:'/pgmManage',
       component:PgmManage,
+      meta:{
+        title:'节目管理',
+      }
     },
     {
       path:'/actDetail',
       component:ActDetail,
+      meta:{
+        title:'活动详情',
+      }
     },
     {
       path:'/rwdVote',
       component:RwdVote,
+      meta:{
+        title:'奖项投票'
+      }
     },
     {
       path:'/crtAct',
       component:CrtAct,
+      meta:{
+        title:'创建活动',
+      }
     },
     {
       path:'/qusNaire',
       component:QusNaire,
+      meta:{
+        title:'问卷调查',
+      }
     },
     {
       path:'/qusList',
       component:QusList,
+      meta:{
+        title:'问卷列表',
+      }
     },
     {
       path:'/qusBasicInfo',
       component:QusBasicInfo,
+      meta:{
+        title:'问卷基础信息',
+      }
     },
     {
       path:'/qusText',
       component:QusText,
-      children:[]
+      meta:{
+        title:'问卷选项',
+      }
     },
 ]
 

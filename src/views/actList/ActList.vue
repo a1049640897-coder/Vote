@@ -40,12 +40,14 @@
   import NavBar from "components/common/navBar/NavBar";
   import Scroll from "components/common/scroll/Scroll";
   import CircleBtn from "components/common/circleBtn/CircleBtn";
+
   //引入子组件
   import MsgList from "./childComps/MsgList";
   import {Toast} from 'vant';
   //引入防抖函数
   import {debounce} from "common/untils";
-
+//引入vant组件
+  import {PullRefresh,Overlay} from 'vant';
   export default {
     name: "ActList",
     data() {
@@ -66,6 +68,9 @@
       CircleBtn,
 
       MsgList,
+
+      [PullRefresh.name]:PullRefresh,
+      [Overlay.name]:Overlay,
     },
     computed: {},
     methods: {

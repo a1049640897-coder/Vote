@@ -26,6 +26,8 @@
   import AddInput from "./childComps/AddInput";
   import Scroll from "components/common/scroll/Scroll";
 
+  import {Uploader} from 'vant';
+
 
   export default {
     name: "AddPgm",
@@ -38,7 +40,9 @@
     components: {
       PgmTitle,
       AddInput,
-      Scroll
+      Scroll,
+
+      [Uploader.name]:Uploader,
     },
     methods: {
       afterRead(file) {

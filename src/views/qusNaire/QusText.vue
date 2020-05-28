@@ -81,6 +81,8 @@
   import NavBar from "components/common/navBar/NavBar";
   import Scroll from "components/common/scroll/Scroll";
 
+  import {Field,Button,Radio,RadioGroup,Icon,Checkbox,Popup} from 'vant';
+
   export default {
     name: "QusText",
     data() {
@@ -111,6 +113,14 @@
       }
     },
     components: {
+      [Field.name]:Field,
+      [Button.name]:Button,
+      [Radio.name]:Radio,
+      [RadioGroup.name]:RadioGroup,
+      [Icon.name]:Icon,
+      [Checkbox.name]:Checkbox,
+      [Popup.name]:Popup,
+
       NavBar,
       Scroll,
     },

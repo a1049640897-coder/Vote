@@ -7,7 +7,7 @@
       <div class="rwd-top">
         <img src="~assets/img/common/clock.png" alt="" class="clock">
         <span class="time-title">距离投票结束还剩:</span>
-        <van-count-down millisecond :time="time" format="HH:mm:ss:SS" class="time"/>
+        <van-count-down millisecond :time="time" format="HH:mm:ss" class="time" style="margin-right: 25px"/>
         <img src="~assets/img/common/leaderBoard.png" alt="" class="leader" @click="toAllRank">
       </div>
       <div class="rwd-bottom" v-for="(item,index) in rwd" :key="index">
@@ -27,12 +27,18 @@
 </template>
 
 <script>
+   import {Button,CountDown} from 'vant';
+
   export default {
     name: "ActRwd",
     data() {
       return {
         time: 30 * 60 * 60 * 1000,
       }
+    },
+    components:{
+      [Button.name]:Button,
+      [CountDown.name]:CountDown,
     },
     props: {
       rwd: {

@@ -50,8 +50,7 @@
 
 <script>
   import * as mutationsTypes from "store/mutation-types";
-  import {Toast} from 'vant';
-  import {CHANGE_CUT_DWN_SHOW} from "../../../store/mutation-types";
+  import {Toast,CountDown,Circle} from 'vant';
 
   export default {
     name: "ActCutDwn",
@@ -63,6 +62,10 @@
         beginShow: true,
         pauseShow:true,
       };
+    },
+    components:{
+      [CountDown.name]:CountDown,
+      [Circle.name]:Circle,
     },
     methods: {
       //开始计时
