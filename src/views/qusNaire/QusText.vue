@@ -3,7 +3,7 @@
     <!--导航栏-->
     <nav-bar>
       <div slot="left"><i class="iconfont iconfanhui"></i></div>
-      <div slot="center">问卷调查</div>
+      <div slot="center">{{$route.meta.title}}</div>
       <div slot="right" class="right" @click="showPopup">
         <van-icon name="exchange" size="20px"/>
       </div>

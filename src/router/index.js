@@ -20,16 +20,13 @@ Vue.use(VueRouter);
   const routes = [
     {
       path:'/',
-      redirect :'/qusNaire',
-      meta:{
-        title:'重定向到首页'
-      }
+      redirect :'/actList',
     },
     {
       path: '/actList',
       component:ActList,
       meta:{
-        title:'首页',
+        title:'DEEP投票',
       }
     },
     {
@@ -79,6 +76,7 @@ Vue.use(VueRouter);
       component:QusNaire,
       meta:{
         title:'问卷调查',
+        requiresAuth: true
       }
     },
     {
@@ -86,6 +84,7 @@ Vue.use(VueRouter);
       component:QusList,
       meta:{
         title:'问卷列表',
+        requiresAuth: true
       }
     },
     {
@@ -93,6 +92,7 @@ Vue.use(VueRouter);
       component:QusBasicInfo,
       meta:{
         title:'问卷基础信息',
+        requiresAuth: true
       }
     },
     {
@@ -100,6 +100,7 @@ Vue.use(VueRouter);
       component:QusText,
       meta:{
         title:'问卷选项',
+        requiresAuth: true
       }
     },
 ]

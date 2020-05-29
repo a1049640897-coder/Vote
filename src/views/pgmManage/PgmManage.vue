@@ -4,7 +4,7 @@
 
     <nav-bar>
       <div slot="left"><i class="iconfont iconfanhui"></i></div>
-      <div slot="center" @click="toDemo">节目管理</div>
+      <div slot="center" @click="toDemo">{{$route.meta.title}}</div>
     </nav-bar>
     <!--节目列表-->
     <scroll class="content" ref="scroll" v-show="pgmListIsShow">

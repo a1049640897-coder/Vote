@@ -2,7 +2,7 @@
   <div id="act-list">
     <!--导航栏-->
     <nav-bar>
-      <div slot="center">DEEP投票</div>
+      <div slot="center">{{$route.meta.title}}</div>
     </nav-bar>
     <!--    投票列表-->
     <scroll class="content" ref="scroll" :probe-type="2" @scroll="scrollPosition">

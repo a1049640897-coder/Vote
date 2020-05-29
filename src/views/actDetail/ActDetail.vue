@@ -3,7 +3,7 @@
     <!--导航栏-->
     <nav-bar>
       <div slot="left"><i class="iconfont iconfanhui"></i></div>
-      <div slot="center">活动详情</div>
+      <div slot="center">{{$route.meta.title}}</div>
     </nav-bar>
   <scroll ref="scroll" class="content">
     <detail-img :img="img" @imgLoad="imgLoad"></detail-img>

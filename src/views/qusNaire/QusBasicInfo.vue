@@ -2,7 +2,7 @@
   <div id="qus-basic-info-container">
     <nav-bar>
       <div slot="left"><i class="iconfont iconfanhui"></i></div>
-      <div slot="center">基本信息</div>
+      <div slot="center">{{$route.meta.title}}</div>
     </nav-bar>
     <scroll class="content">
     <div class="qus-basic-info-box">

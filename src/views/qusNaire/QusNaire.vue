@@ -1,7 +1,7 @@
 <template>
   <div id="qus-naire-container">
     <div class="qus-naire">
-      <div class="title">问卷调查</div>
+      <div class="title">{{$route.meta.title}}</div>
       <div class="input">
         <div class="username">
           <van-field

@@ -32,6 +32,9 @@
 </template>
 
 <script>
+
+  import { SwipeCell } from 'vant';
+
   export default {
     name: "PgmItem",
     props: {
@@ -41,6 +44,9 @@
           return []
         }
       }
+    },
+    components:{
+      [SwipeCell.name]:SwipeCell,
     },
     methods: {
       imgLoad() {

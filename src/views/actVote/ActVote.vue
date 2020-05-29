@@ -2,7 +2,7 @@
   <div id="act-vote">
     <nav-bar>
       <div slot="left"><i class="iconfont iconfanhui"></i></div>
-      <div slot="center">活动投票</div>
+      <div slot="center">{{$route.meta.title}}</div>
     </nav-bar>
     <scroll class="content" ref="scroll">
       <act-msg :msg="msg" @load="imgLoad"></act-msg>

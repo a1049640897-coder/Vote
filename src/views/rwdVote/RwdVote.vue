@@ -2,7 +2,7 @@
   <div id="rwd-vote-container">
     <nav-bar>
       <div slot="left"><i class="iconfont iconfanhui"></i></div>
-      <div slot="center">{{title}}</div>
+      <div slot="center">{{$route.meta.title}}</div>
     </nav-bar>
     <scroll class="content" ref="scroll" >
       <!--投票/评分-->

@@ -3,7 +3,7 @@
   <div id="all-rank-container">
     <nav-bar>
       <div slot="left"><i class="iconfont iconfanhui"></i></div>
-      <div slot="center">排行榜</div>
+      <div slot="center">{{$route.meta.title}}</div>
     </nav-bar>
 
     <div class="rank-title">
