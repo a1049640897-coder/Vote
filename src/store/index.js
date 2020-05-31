@@ -14,6 +14,7 @@ const state = {
   actCntIsShow:true,//活动内容是否显示
   actSetIsShow:false,//活动设置是否显示
   showDataScore:{},
+  userIsShow:false,//是否登录
 
 }
 

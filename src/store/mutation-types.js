@@ -5,3 +5,4 @@
  export const  CHANGE_POP_SHOW = 'CHANGE_POP_SHOW';
  export const  CHANGE_ACT_CNT_SHOW = 'CHANGE_ACT_CNT_SHOW';
  export const  CHANGE_ACT_SET_SHOW = ' CHANGE_ACT_SET_SHOW';
+ export const  CHANGE_USER_IS_SHOW = '  CHANGE_USER_IS_SHOW';

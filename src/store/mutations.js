@@ -6,6 +6,7 @@ import {
   CHANGE_POP_SHOW,
   CHANGE_ACT_CNT_SHOW,
   CHANGE_ACT_SET_SHOW,
+  CHANGE_USER_IS_SHOW,
 } from "./mutation-types";
 
 const mutations = {
@@ -30,7 +31,10 @@ const mutations = {
   },
   [CHANGE_ACT_SET_SHOW](state,payload){
     state.actSetIsShow =payload;
-  }
+  },
+  [ CHANGE_USER_IS_SHOW](state,payload){
+     state.userIsShow = payload;
+   }
 }
 
 export default mutations

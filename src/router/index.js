@@ -13,31 +13,36 @@ const QusNaire=()=>import('views/qusNaire/QusNaire');
 const QusList=()=>import('views/qusNaire/QusList');
 const QusBasicInfo=()=>import('views/qusNaire/QusBasicInfo');
 const QusText=()=>import('views/qusNaire/QusText');
+const NotFoundPage=()=>import('views/notFoundPage/NotFoundPage');
 
 
 Vue.use(VueRouter);
 
   const routes = [
+    { path: '*', component: NotFoundPage },
     {
       path:'/',
       redirect :'/actList',
     },
     {
       path: '/actList',
+      name:'actList',
       component:ActList,
       meta:{
         title:'DEEP投票',
       }
     },
     {
-      path:'/actVote',
+      path:'/actVote/:id',
       component:ActVote,
+      name:'actVote',
       meta:{
         title:'活动投票',
       }
     },
     {
       path:'/allRank',
+      name:'allRank',
       component:AllRank,
       meta:{
         title:'总排行榜',
@@ -45,6 +50,7 @@ Vue.use(VueRouter);
     },
     {
       path:'/pgmManage',
+      name:'pgmManage',
       component:PgmManage,
       meta:{
         title:'节目管理',
@@ -52,6 +58,7 @@ Vue.use(VueRouter);
     },
     {
       path:'/actDetail',
+      name:'actDetail',
       component:ActDetail,
       meta:{
         title:'活动详情',
@@ -59,6 +66,7 @@ Vue.use(VueRouter);
     },
     {
       path:'/rwdVote',
+      name:'rwdVote',
       component:RwdVote,
       meta:{
         title:'奖项投票'
@@ -66,13 +74,16 @@ Vue.use(VueRouter);
     },
     {
       path:'/crtAct',
+      name:'crtAct',
       component:CrtAct,
       meta:{
         title:'创建活动',
+        requiresAuth: true,
       }
     },
     {
       path:'/qusNaire',
+      name:'qusNaire',
       component:QusNaire,
       meta:{
         title:'问卷调查',
@@ -81,14 +92,16 @@ Vue.use(VueRouter);
     },
     {
       path:'/qusList',
+      name:'qusList',
       component:QusList,
       meta:{
         title:'问卷列表',
-        requiresAuth: true
+        requiresAuth: true,
       }
     },
     {
       path:'/qusBasicInfo',
+      name:'qusBasicInfo',
       component:QusBasicInfo,
       meta:{
         title:'问卷基础信息',
@@ -97,6 +110,7 @@ Vue.use(VueRouter);
     },
     {
       path:'/qusText',
+      name:'qusText',
       component:QusText,
       meta:{
         title:'问卷选项',
@@ -105,10 +119,23 @@ Vue.use(VueRouter);
     },
 ]
 
+
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
-  routes
-})
+  routes,
+});
+
+
+
 
 export default router
+router.beforeEach((to,from,next)=>{
+  if (to.meta.requiresAuth){
+    next(vm => {
+
+    })
+  }else {
+    next();
+  }
+})

@@ -29,6 +29,7 @@
 
 <script>
   import {Field,Button} from 'vant';
+  import * as mutationsTypes from "store/mutation-types";
   export default {
     name: "QusNaire",
     data() {
@@ -43,6 +44,7 @@
     },
     methods: {
       toQusList() {
+        this.$store.dispatch(mutationsTypes.CHANGE_USER_IS_SHOW,true);
         this.$router.push('/qusList');
       }
     }

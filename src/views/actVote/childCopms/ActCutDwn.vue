@@ -163,6 +163,7 @@
         position: absolute;
         top: 170Px;
 
+
         .block, .colon {
           font-size: 36px;
           color: #FFFFFF;

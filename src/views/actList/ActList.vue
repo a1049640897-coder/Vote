@@ -46,8 +46,9 @@
   import {Toast} from 'vant';
   //引入防抖函数
   import {debounce} from "common/untils";
-//引入vant组件
-  import {PullRefresh,Overlay} from 'vant';
+  //引入vant组件
+  import {PullRefresh, Overlay} from 'vant';
+
   export default {
     name: "ActList",
     data() {
@@ -69,8 +70,8 @@
 
       MsgList,
 
-      [PullRefresh.name]:PullRefresh,
-      [Overlay.name]:Overlay,
+      [PullRefresh.name]: PullRefresh,
+      [Overlay.name]: Overlay,
     },
     computed: {},
     methods: {
@@ -80,12 +81,19 @@
       },
       //跳转到活动投票
       toActVote(value) {
+        const demo ='22';
         this.$router.push({
-          path: '/actVote',
-          query: {
-            'msg': value,
-          }
-        })
+          // name: 'actVote',
+          // params: {
+          //   msg: value,
+          // }
+          path:`/actVote/${demo}`
+
+        //   path:'/actVote',
+            //   query:{
+            //     msg:value,
+            //   }
+            })
       },
       //下拉刷新
       onRefresh() {

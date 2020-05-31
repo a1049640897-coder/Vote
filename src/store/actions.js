@@ -6,7 +6,8 @@ import {
   GET_VOTE_DATA,
   CHANGE_POP_SHOW,
   CHANGE_ACT_CNT_SHOW,
-  CHANGE_ACT_SET_SHOW
+  CHANGE_ACT_SET_SHOW,
+  CHANGE_USER_IS_SHOW,
 } from "./mutation-types";
 
 const actions ={
@@ -35,6 +36,10 @@ const actions ={
     context.commit(CHANGE_ACT_CNT_SHOW,payload);
   },
   //改变活动设置的显示状态
+  [CHANGE_USER_IS_SHOW](context,payload){
+    context.commit(CHANGE_USER_IS_SHOW,payload);
+  },
+  //用户是否登录
   [CHANGE_ACT_SET_SHOW](context,payload){
     context.commit(CHANGE_ACT_SET_SHOW,payload);
   }

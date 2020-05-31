@@ -2,7 +2,7 @@
   <div id="act-vote">
     <nav-bar>
       <div slot="left"><i class="iconfont iconfanhui"></i></div>
-      <div slot="center">{{$route.meta.title}}</div>
+      <div slot="center">{{$route.meta.title}}  {{id}}</div>
     </nav-bar>
     <scroll class="content" ref="scroll">
       <act-msg :msg="msg" @load="imgLoad"></act-msg>
@@ -46,6 +46,7 @@
 
       }
     },
+    props:['id'],
     methods: {
       //每次加载进行图片的更新
       imgLoad() {
@@ -73,6 +74,11 @@
       ActCutDwn,
 
       Scroll
+    },
+    created() {
+      // console.log(this.$route.params.msg)
+      // console.log(this.$route.params.id);
+      // console.log(this.$route.query.msg)
     },
     mounted() {
       //获取活动个投票头部信息
