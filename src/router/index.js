@@ -133,7 +133,6 @@ export default router
 router.beforeEach((to,from,next)=>{
   if (to.meta.requiresAuth){
     next(vm => {
-
     })
   }else {
     next();
